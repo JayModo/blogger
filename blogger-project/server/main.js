@@ -43,10 +43,10 @@ server.use('/account', new AuthController().router)
 
 //NOTE we have to import access to our controllers
 import ValuesController from './controllers/ValuesController'
-
+import CommentController from './controllers/CommentController'
 //NOTE remember the forward slash at the start of your path!
 server.use('/api/values', new ValuesController().router)
-
+server.use('/api/comment', new CommentController().router)
 
 
 //NOTE Everything below this line always stays the same

@@ -18,7 +18,7 @@ export default class ValuesController {
 
     async getAll(req, res, next) {
         try {
-            let data = await _valuesService.find({})
+            let data = await _valuesService.find({}).populate("comment")
             return res.send(data)
         } catch (error) { next(error) }
 
@@ -26,7 +26,7 @@ export default class ValuesController {
 
     async getById(req, res, next) {
         try {
-            let data = await _valuesService.findById(req.params.id)
+            let data = await _valuesService.findById(req.params.id).populate("comment")
             if (!data) {
                 throw new Error("Invalid Id")
             }
